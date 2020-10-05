@@ -15,11 +15,15 @@ app.use(cors());
 
 const port=5000;
 
+app.get('/', (req, res) =>{
+    res.send('Its working')
+})
+
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 client.connect(err => {
 
   console.log(err)
-  
+
   const userCollection= client.db("vulenteerStore").collection("user");
   const userRegister=client.db("vulenteerStore").collection("user");
 
