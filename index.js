@@ -19,8 +19,10 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 client.connect(err => {
 
   console.log(err)
+  
   const userCollection= client.db("vulenteerStore").collection("user");
   const userRegister=client.db("vulenteerStore").collection("user");
+
   console.log("Connected");
 
   app.post('/addCollection',(req, res) => {
@@ -56,4 +58,4 @@ client.connect(err => {
 
 
 
-app.listen(port)
+app.listen(process.env.PORT || port)
